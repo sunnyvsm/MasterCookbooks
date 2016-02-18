@@ -1,0 +1,56 @@
+
+##### GMAIL ####
+<domain gmail.com>
+dk-sign yes
+dkim-sign yes
+log-transfer-failures yes
+log-connections yes
+log-commands yes
+retry-after 10m
+bounce-after 24h
+log-connections yes
+log-commands yes
+max-smtp-out 1200
+</domain>
+
+
+##### YAHOO ####
+domain-macro yahoo yahoo.com, ymail.com, rocketmail.com
+
+<domain $yahoo>
+dk-sign yes
+dkim-sign yes
+log-transfer-failures yes
+log-connections yes
+log-commands yes
+retry-after 2m
+bounce-after 4h
+log-connections yes
+log-commands yes
+max-smtp-out 1200
+max-msg-per-connection 100
+</domain>
+
+################ HOTMAIL RULE LOOP STARTS HERE ########################
+#
+domain-macro hotmail hotmail, msn, live, outlook
+domain-macro htld com, de, co.uk, es
+#
+<smtp-pattern-list hotmail_errors>
+reply /421 RP-001 / mode=backoff
+reply /550 SC-001 .* Unfortunately/ mode=backoff
+</smtp-pattern-list>
+#
+<domain $hotmail.$htld>
+queue-priority 100
+dk-sign yes
+dkim-sign yes
+retry-after 5m
+bounce-after 4d24h
+max-smtp-out 20
+max-msg-per-connection 40
+421-means-mx-unavailable yes
+backoff-to-normal-after 5m
+smtp-pattern-list hotmail_errors
+</domain>
+#

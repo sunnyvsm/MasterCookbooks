@@ -1,0 +1,18 @@
+<?php
+
+
+$salt="2565656DSDSdsdsD";
+
+   function encryptlink($text,$salt)
+    {
+       return  base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256,
+                                              md5($salt),
+                                              $text,
+                                              MCRYPT_MODE_CBC,
+                                              md5(md5($salt))
+                                             ));
+
+    }
+
+    
+?>

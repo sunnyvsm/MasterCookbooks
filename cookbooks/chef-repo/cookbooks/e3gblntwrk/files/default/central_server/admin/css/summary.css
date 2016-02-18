@@ -1,0 +1,23 @@
+@charset "utf-8";
+.mainbody{
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0;
+	left:0;
+	background-color:#453F3F;
+}
+.heading{
+	margin-top:100px;
+	color:#fff;
+	text-align:center;
+	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-size:40px;
+}
+.info{
+	margin-top:10px;
+	color:#fff;
+	text-align:center;
+	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-size:20px;
+}
