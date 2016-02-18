@@ -8,7 +8,7 @@
 include_recipe 'e3gblntwrk::initial_setup'
 include_recipe 'e3gblntwrk::httpd_config'
 include_recipe 'e3gblntwrk::php'
-#include_recipe 'e3gblntwrk::dependencies_resolve'
+include_recipe 'e3gblntwrk::dependencies_resolve'
 include_recipe 'e3gblntwrk::pmta_installation'
 include_recipe 'e3gblntwrk::mysql_server'
 include_recipe 'e3gblntwrk::sending_portal'
