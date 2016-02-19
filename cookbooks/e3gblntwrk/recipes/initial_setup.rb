@@ -2,15 +2,25 @@
 
 include_recipe 'selinux'
 
+selinux_state "SELinux Enforcing" do
+  action :disabled
+end
+
 service "sendmail" do
   supports :stop => true, :reload => true, :start => true
   action [:disable, :stop]
-only_if 'which sestatus'
+only_if 'which sendmail'
 end
 
 service "iptables" do
   supports :stop => true, :reload => true, :start => true
   action [:disable, :stop]
-only_if { File.exist?("/etc/init.d/sendmail") }
+only_if 'which iptables'
+end
+
+service "postfix" do
+  supports :stop => true, :reload => true, :start => true
+  action [:disable, :stop]
+only_if 'which postfix'
 end
 
