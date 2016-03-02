@@ -81,3 +81,7 @@ cron 'bounce_data_collect' do
 user 'root'
 end
 
+service "cron" do
+  supports :restart => true, :reload => true, :start => true
+  action [:enable, :start]
+end
