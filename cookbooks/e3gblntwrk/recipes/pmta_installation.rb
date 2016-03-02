@@ -70,14 +70,14 @@ end
 cron 'pmta_log_backup' do
   hour '23'
   minute '59'
-  command '/scripts/All_scripts/pmta_logrotate.sh'
+  command '/bin/sh /scripts/All_scripts/pmta_logrotate.sh'
 user 'root'
 end
 
 cron 'bounce_data_collect' do
   hour '23'
   minute '59'
-  command '/scripts/All_scripts/bounce_collectv1.01.sh'
+  command '/bin/sh /scripts/All_scripts/bounce_collectv1.01.sh'
 user 'root'
 end
 
